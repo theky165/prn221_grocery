@@ -1,0 +1,72 @@
+﻿<Window x:Class="SalesWPFApp.Dashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Dashboard" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+    </Window.Resources>
+    <ScrollViewer>
+        <Grid Margin="0,0,0,0" Height="700">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Menu HorizontalAlignment="Left" Foreground="Purple" Margin="0 0 0 0" VerticalAlignment = "Top" Width = "800" Grid.RowSpan="1">
+                <MenuItem FontWeight="Bold" Header="Dashboard" HorizontalAlignment = "Left" Click="MenuItem_Click_4"></MenuItem>
+                <MenuItem FontWeight="Bold" Header="Account" HorizontalAlignment = "Left" Click="MenuItem_Click"></MenuItem>
+                <MenuItem FontWeight="Bold" Header="Order" HorizontalAlignment = "Left" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem FontWeight="Bold" Header="Product" HorizontalAlignment = "Left" Click="MenuItem_Click_3"></MenuItem>
+            </Menu>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2" Margin="0 0 0 0">
+                <materialDesign:Card Width="200" Margin="20" Padding="0" Background="#462C43" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Margin="16,16,16,4" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="50" />
+                        <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                        <TextBlock Grid.Row="2" Margin="16,0,16,8" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Total Order" />
+                        <StackPanel Grid.Row="2" Margin="16,0,16,8" HorizontalAlignment="Right" Orientation="Horizontal">
+                        </StackPanel>
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card Width="200" Margin="20" Padding="0" Background="#462C43" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Margin="16,16,16,4" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="24" />
+                        <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                        <TextBlock Grid.Row="2" Margin="16,0,16,8" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Total Product" />
+                        <StackPanel Grid.Row="2" Margin="16,0,16,8" HorizontalAlignment="Right" Orientation="Horizontal">
+                        </StackPanel>
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card Width="200" Margin="20" Padding="0" Background="#462C43" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Margin="16,16,16,4" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="39" />
+                        <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
+                        <TextBlock Grid.Row="2" Margin="16,0,16,8" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                   Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Total Account" />
+                        <StackPanel Grid.Row="2" Margin="16,0,16,8" HorizontalAlignment="Right" Orientation="Horizontal">
+                        </StackPanel>
+                    </Grid>
+                </materialDesign:Card>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>

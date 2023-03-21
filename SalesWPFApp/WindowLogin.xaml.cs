@@ -42,8 +42,8 @@ namespace SalesWPFApp
             if (authenLogin)
             {
                 MessageBox.Show("Login Success!");
-                WindowOrders windowOrders = new WindowOrders();
-                windowOrders.Show();
+                Dashboard windowDashboard = new Dashboard();
+                windowDashboard.Show();
                 this.Close();
             }
             else

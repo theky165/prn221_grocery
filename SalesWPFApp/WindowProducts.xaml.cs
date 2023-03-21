@@ -136,5 +136,12 @@ namespace SalesWPFApp
             windowProducts.Show();
             this.Close();
         }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            Dashboard windowDashboard = new Dashboard();
+            windowDashboard.Show();
+            this.Close();
+        }
     }
 }

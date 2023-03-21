@@ -25,6 +25,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Menu HorizontalAlignment="Left" Foreground="Purple" Margin="0 0 0 0" VerticalAlignment = "Top" Width = "800" Grid.RowSpan="1" Grid.ColumnSpan="3">
+                <MenuItem FontWeight="Bold" Header="Dashboard" HorizontalAlignment = "Left" Click="MenuItem_Click_4"></MenuItem>
                 <MenuItem FontWeight="Bold" Header="Account" HorizontalAlignment = "Left" Click="MenuItem_Click"></MenuItem>
                 <MenuItem FontWeight="Bold" Header="Order" HorizontalAlignment = "Left" Click="MenuItem_Click_1"></MenuItem>
                 <MenuItem FontWeight="Bold" Header="Product" HorizontalAlignment = "Left" Click="MenuItem_Click_2"></MenuItem>
