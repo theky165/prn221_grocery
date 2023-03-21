@@ -35,7 +35,7 @@ public partial class Prn221GroceryContext : DbContext
         }
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Account>(entity =>
         {
@@ -60,16 +60,14 @@ public partial class Prn221GroceryContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasNoKey();
+            entity.HasKey(e => e.OrderId).HasName("PK_Orderss");
 
             entity.Property(e => e.OrderDate).HasColumnType("datetime");
-            entity.Property(e => e.OrderId).ValueGeneratedOnAdd();
             entity.Property(e => e.TotalPrice).HasColumnType("money");
 
-            entity.HasOne(d => d.OrderNavigation).WithMany()
-                .HasForeignKey(d => d.OrderId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Orders_Order_Items");
+            entity.HasOne(d => d.Account).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.AccountId)
+                .HasConstraintName("FK_Orders_Accounts");
         });
 
         modelBuilder.Entity<OrderItem>(entity =>
@@ -77,6 +75,11 @@ public partial class Prn221GroceryContext : DbContext
             entity.HasKey(e => e.OrderItemId).HasName("PK_Order_Item");
 
             entity.ToTable("Order_Items");
+
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderItems)
+                .HasForeignKey(d => d.OrderId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Order_Items_Orders");
 
             entity.HasOne(d => d.Product).WithMany(p => p.OrderItems)
                 .HasForeignKey(d => d.ProductId)

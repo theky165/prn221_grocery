@@ -24,37 +24,35 @@ namespace SalesWPFApp
     /// </summary>
     public partial class WindowOrders : Window
     {
-        FstoreContext db;
+        Prn221GroceryContext db;
         public IOrderRepository orderRepository;
         public WindowOrders()
         {
             InitializeComponent();
-            db = new FstoreContext();
+            db = new Prn221GroceryContext();
             orderRepository = new OrderDAO();
         }
 
         public void LoadData()
         {
-            var orders = db.Orders.Include(o => o.Member)
+            var orders = db.Orders.Include(o => o.Account)
                 .Select(o => new
                 {
                     id = o.OrderId,
-                    member = o.Member.Email,
+                    account = o.Account.Username,
                     orderDate = o.OrderDate,
-                    requiredDate = o.RequiredDate,
-                    shippedDate = o.ShippedDate,
-                    freight = o.Freight,
+                    totalPrice = o.TotalPrice,
                 }).ToList();
 
-            var members = db.Members.Select(m => new
+            var accounts = db.Accounts.Select(a => new
             {
-                id = m.MemberId,
-                email = m.Email
+                id = a.AccountId,
+                username = a.Username
             }).ToList();
 
             // Binding to : lv Employee, cb Dept
             lvOrder.ItemsSource = orders;
-            cbMember.ItemsSource = members;
+            cbAccount.ItemsSource = accounts;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -65,21 +63,17 @@ namespace SalesWPFApp
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
             txtOrderId.Text = "";
-            cbMember.Text = "";
+            cbAccount.Text = "";
             dpOrderDate.Text = "";
-            dpRequiredDate.Text = "";
-            dpShippedDate.Text = "";
-            txtFreight.Text = "";
+            txtTotalPrice.Text = "";
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             Order o = new Order();
-            o.MemberId = int.Parse(cbMember.SelectedValue.ToString());
+            o.AccountId = int.Parse(cbAccount.SelectedValue.ToString());
             o.OrderDate = (DateTime)dpOrderDate.SelectedDate;
-            o.RequiredDate = (DateTime)dpRequiredDate.SelectedDate;
-            o.ShippedDate = (DateTime)dpShippedDate.SelectedDate;
-            o.Freight = decimal.Parse(txtFreight.Text);
+            o.TotalPrice = decimal.Parse(txtTotalPrice.Text);
             orderRepository.addOrder(o);
             LoadData();
         }
@@ -89,11 +83,9 @@ namespace SalesWPFApp
             Order o = new Order
             {
                 OrderId = int.Parse(txtOrderId.Text),
-                MemberId = int.Parse(cbMember.SelectedValue.ToString()),
+                AccountId = int.Parse(cbAccount.SelectedValue.ToString()),
                 OrderDate = dpOrderDate.DisplayDate,
-                RequiredDate = dpRequiredDate.DisplayDate,
-                ShippedDate = dpShippedDate.DisplayDate,
-                Freight = decimal.Parse(txtFreight.Text)
+                TotalPrice = decimal.Parse(txtTotalPrice.Text)
             };
             orderRepository.editOrder(o);
             LoadData();

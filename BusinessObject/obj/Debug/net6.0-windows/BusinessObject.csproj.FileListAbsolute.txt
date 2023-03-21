@@ -58,3 +58,4 @@ D:\FPT_University\Term 8\PRN221\prn221_grocery\BusinessObject\obj\Debug\net6.0-w
 D:\FPT_University\Term 8\PRN221\prn221_grocery\BusinessObject\obj\Debug\net6.0-windows\BusinessObject.pdb
 D:\FPT_University\Term 8\PRN221\prn221_grocery\BusinessObject\obj\Debug\net6.0-windows\BusinessObject.genruntimeconfig.cache
 D:\FPT_University\Term 8\PRN221\prn221_grocery\BusinessObject\obj\Debug\net6.0-windows\ref\BusinessObject.dll
+D:\FPT_University\Term 8\PRN221\prn221_grocery\BusinessObject\bin\Debug\net6.0-windows\appsettings.json

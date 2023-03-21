@@ -12,4 +12,6 @@ public partial class Account
     public string Password { get; set; } = null!;
 
     public int Type { get; set; }
+
+    public virtual ICollection<Order> Orders { get; } = new List<Order>();
 }

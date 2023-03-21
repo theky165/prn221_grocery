@@ -25,12 +25,12 @@ namespace SalesWPFApp
     /// </summary>
     public partial class WindowLogin : Window
     {
-        private readonly string adminEmail;
-        private readonly string adminPassword;
-        private IAccountRepository memberRepository;
+        private IAccountRepository accountRepository;
         private Prn221GroceryContext db = new Prn221GroceryContext();
         public WindowLogin()
         {
+            accountRepository = new AccountDAO();
+            InitializeComponent();
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
@@ -38,7 +38,7 @@ namespace SalesWPFApp
             string username = tbUsername.Text;
             string password = tbPassword.Password;
 
-            bool authenLogin = memberRepository.AuthenticateUser(username, password);
+            bool authenLogin = accountRepository.AuthenticateUser(username, password);
             if (authenLogin)
             {
                 MessageBox.Show("Login Success!");

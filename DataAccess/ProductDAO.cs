@@ -41,7 +41,7 @@ namespace DataAccess
         public List<Product> searchProduct(string productName)
         {
             List<Product> productList = db.Products.Where(p =>
-            p.ProductName.ToLower().Contains(productName)).ToList();
+            p.Name.ToLower().Contains(productName)).ToList();
             if (productList.Count > 0)
             {
                 return productList;

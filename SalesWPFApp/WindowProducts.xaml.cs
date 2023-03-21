@@ -24,12 +24,12 @@ namespace SalesWPFApp
     /// </summary>
     public partial class WindowProducts : Window
     {
-        FstoreContext db;
+        Prn221GroceryContext db;
         private IProductRepository productRepository;
         public WindowProducts()
         {
             InitializeComponent();
-            db = new FstoreContext();
+            db = new Prn221GroceryContext();
             productRepository = new ProductDAO();
         }
 
@@ -39,10 +39,10 @@ namespace SalesWPFApp
             {
                 id = p.ProductId,
                 categoryId = p.CategoryId,
-                productName = p.ProductName,
-                weight = p.Weight,
-                unitPrice = p.UnitPrice,
-                unitsInStock = p.UnitslnStock,
+                productName = p.Name,
+                image = p.Image,
+                price = p.Price,
+                quantity = p.Quantity,
             }).ToList();
 
             lvProduct.ItemsSource = products;
@@ -58,19 +58,19 @@ namespace SalesWPFApp
             txtProductId.Text = "";
             txtCategoryId.Text = "";
             txtProductName.Text = "";
-            txtWeight.Text = "";
-            txtUnitPrice.Text = "";
-            txtUnitInStock.Text = "";
+            txtImage.Text = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             Product p = new Product();
             p.CategoryId = int.Parse(txtCategoryId.Text);
-            p.ProductName = txtProductName.Text;
-            p.Weight = txtWeight.Text;
-            p.UnitPrice = decimal.Parse(txtUnitPrice.Text);
-            p.UnitslnStock = int.Parse(txtUnitInStock.Text);
+            p.Name = txtProductName.Text;
+            p.Image = txtImage.Text;
+            p.Price = decimal.Parse(txtPrice.Text);
+            p.Quantity = int.Parse(txtQuantity.Text);
             productRepository.addProduct(p);
             LoadData();
         }
@@ -81,10 +81,10 @@ namespace SalesWPFApp
             {
                 ProductId = int.Parse(txtProductId.Text),
                 CategoryId = int.Parse(txtCategoryId.Text),
-                ProductName = txtProductName.Text,
-                Weight = txtWeight.Text,
-                UnitPrice = decimal.Parse(txtUnitPrice.Text),
-                UnitslnStock = int.Parse(txtUnitInStock.Text),
+                Name = txtProductName.Text,
+                Image = txtImage.Text,
+                Price = decimal.Parse(txtPrice.Text),
+                Quantity = int.Parse(txtQuantity.Text),
             };
             productRepository.editProduct(p);
             LoadData();
@@ -105,14 +105,11 @@ namespace SalesWPFApp
             {
                 id = p.ProductId,
                 categoryId = p.CategoryId,
-                productName = p.ProductName,
-                weight = p.Weight,
-                unitPrice = p.UnitPrice,
-                unitsInStock = p.UnitslnStock
+                productName = p.Name,
+                image = p.Image,
+                price = p.Price,
+                quantity = p.Quantity
             }).Where(p =>
-                p.id.ToString().Equals(searchValue) ||
-                p.unitPrice.ToString().Equals(searchValue) ||
-                p.unitsInStock.ToString().Equals(searchValue) ||
                 p.productName.ToLower().Contains(searchValue))
          .ToList();
 

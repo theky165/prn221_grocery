@@ -11,5 +11,9 @@ public partial class Order
 
     public decimal TotalPrice { get; set; }
 
-    public virtual OrderItem OrderNavigation { get; set; } = null!;
+    public int? AccountId { get; set; }
+
+    public virtual Account? Account { get; set; }
+
+    public virtual ICollection<OrderItem> OrderItems { get; } = new List<OrderItem>();
 }
