@@ -72,11 +72,17 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Product ID" DisplayMemberBinding="{Binding Path=id}"/>
-                        <GridViewColumn Header="Category ID" DisplayMemberBinding="{Binding Path=categoryId}"/>
+                        <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Path=categoryId}"/>
                         <GridViewColumn Header="Product Name" DisplayMemberBinding="{Binding Path=productName}"/>
-                        <GridViewColumn Header="Weight" DisplayMemberBinding="{Binding Path=image}"/>
-                        <GridViewColumn Header="Unit Price" DisplayMemberBinding="{Binding Path=price}"/>
-                        <GridViewColumn Header="Units In Stock" DisplayMemberBinding="{Binding Path=quantity}"/>
+                        <GridViewColumn Header="Image">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Path=image}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Path=price}"/>
+                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Path=quantity}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
