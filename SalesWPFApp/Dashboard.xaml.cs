@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,17 @@ namespace SalesWPFApp
     /// </summary>
     public partial class Dashboard : Window
     {
+        private Prn221GroceryContext db = new Prn221GroceryContext();
+        public int totalAccount { get; set; }
+        public int totalProduct { get; set; }
+        public int totalOrder { get; set; }
         public Dashboard()
         {
             InitializeComponent();
+            totalAccount = db.Accounts.Count();
+            totalProduct = db.Products.Count();
+            totalOrder = db.Orders.Count();
+            this.DataContext = this;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

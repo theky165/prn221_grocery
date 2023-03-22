@@ -28,7 +28,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Margin="16,16,16,4" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="50" />
+                        <TextBlock Grid.Row="0" Margin="16,16,16,4" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="{Binding totalOrder}" />
                         <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
                         <TextBlock Grid.Row="2" Margin="16,0,16,8" HorizontalAlignment="Left" VerticalAlignment="Center"
                                    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Total Order" />
@@ -43,7 +43,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Margin="16,16,16,4" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="24" />
+                        <TextBlock Grid.Row="0" Margin="16,16,16,4" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="{Binding totalProduct}" />
                         <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
                         <TextBlock Grid.Row="2" Margin="16,0,16,8" HorizontalAlignment="Left" VerticalAlignment="Center"
                                    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Total Product" />
@@ -58,7 +58,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Margin="16,16,16,4" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="39" />
+                        <TextBlock Grid.Row="0" Margin="16,16,16,4" Style="{StaticResource MaterialDesignHeadline5TextBlock}" Text="{Binding totalAccount}" />
                         <Separator Grid.Row="1" Style="{StaticResource MaterialDesignLightSeparator}" />
                         <TextBlock Grid.Row="2" Margin="16,0,16,8" HorizontalAlignment="Left" VerticalAlignment="Center"
                                    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Total Account" />
