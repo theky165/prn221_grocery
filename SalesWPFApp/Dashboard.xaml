@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Dashboard" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Dashboard" Height="450" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Resources>
     </Window.Resources>
     <ScrollViewer>
@@ -20,7 +20,14 @@
                 <MenuItem FontWeight="Bold" Header="Order" HorizontalAlignment = "Left" Click="MenuItem_Click_1"></MenuItem>
                 <MenuItem FontWeight="Bold" Header="Product" HorizontalAlignment = "Left" Click="MenuItem_Click_3"></MenuItem>
             </Menu>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2" Margin="0 0 0 0">
+            <StackPanel Margin="0,50,0,10" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Margin="0 0 10 0" Content="Start Order Date"/>
+                <DatePicker Width="80px" Margin="0 0 0 180" Name="dpStartDate"/>
+                <Label Margin="50 0 10 0" Content="End Order Date"/>
+                <DatePicker Width="80px"  Margin="0 0 0 180" Name="dpEndDate"/>
+                <Button Width="80" Margin="50 0 0 180" Name="btnSearch" Click="btnSearch_Click">Search</Button>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="3" Margin="0 120 0 0">
                 <materialDesign:Card Width="200" Margin="20" Padding="0" Background="#462C43" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">
                     <Grid>
                         <Grid.RowDefinitions>

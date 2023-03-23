@@ -3901,19 +3901,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ky.tang\\.nuget\\packages\\": {}
+    "C:\\Users\\Century\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FPT_University\\Term 8\\PRN221\\prn221_grocery\\BusinessObject\\BusinessObject.csproj",
+      "projectUniqueName": "D:\\FPT University\\Term 8\\PRN221\\prn221_grocery\\BusinessObject\\BusinessObject.csproj",
       "projectName": "BusinessObject",
-      "projectPath": "D:\\FPT_University\\Term 8\\PRN221\\prn221_grocery\\BusinessObject\\BusinessObject.csproj",
-      "packagesPath": "C:\\Users\\ky.tang\\.nuget\\packages\\",
-      "outputPath": "D:\\FPT_University\\Term 8\\PRN221\\prn221_grocery\\BusinessObject\\obj\\",
+      "projectPath": "D:\\FPT University\\Term 8\\PRN221\\prn221_grocery\\BusinessObject\\BusinessObject.csproj",
+      "packagesPath": "C:\\Users\\Century\\.nuget\\packages\\",
+      "outputPath": "D:\\FPT University\\Term 8\\PRN221\\prn221_grocery\\BusinessObject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ky.tang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Century\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3982,7 +3982,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

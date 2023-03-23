@@ -10,11 +10,6 @@ namespace DataAccess
 
         public void addAccount(Account account)
         {
-            throw new NotImplementedException();
-        }
-
-        public void addMember(Account account)
-        {
             db.Add<Account>(account);
             if (db.SaveChanges() > 0)
             {

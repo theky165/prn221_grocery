@@ -27,10 +27,19 @@ namespace SalesWPFApp
         public Dashboard()
         {
             InitializeComponent();
+        }
+
+        public void LoadData()
+        {
             totalAccount = db.Accounts.Count();
             totalProduct = db.Products.Count();
             totalOrder = db.Orders.Count();
             this.DataContext = this;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadData();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -59,6 +68,24 @@ namespace SalesWPFApp
             Dashboard windowDashboard = new Dashboard();
             windowDashboard.Show();
             this.Close();
+        }
+
+        private int btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Clicked!");
+            DateTime startDate = (DateTime)dpStartDate.SelectedDate;
+            DateTime endDate = (DateTime)dpEndDate.SelectedDate;
+            if (startDate != null && endDate != null)
+            {
+                totalOrder = db.Orders
+                    .Where(o => startDate <= o.OrderDate && o.OrderDate <= endDate).Count();
+                return totalOrder;
+            }
+            else
+            {
+                totalOrder = db.Orders.Count();
+                return totalOrder;
+            }
         }
     }
 }
